@@ -23,7 +23,7 @@
 
 #define KEYBOARD_HEIGHT 80
 #define PREDICTION_BAR_HEIGHT 40
-#define ADD_BUTTON_PADDING 10.0f
+#define ADD_BUTTON_PADDING 12.0f
 #define DEFAULT_WINDOW_WIDTH 240
 
 @interface SCLAlertView ()  <UITextFieldDelegate, UIGestureRecognizerDelegate>
@@ -163,7 +163,7 @@ SCLTimerDisplay *buttonTimer;
     self.subTitleHeight = 90.0f;
     self.circleIconHeight = 20.0f;
     self.windowWidth = windowWidth;
-    self.windowHeight = 178.0f;
+    self.windowHeight = 208.0f;
     self.shouldDismissOnTapOutside = NO;
     self.usingNewWindow = NO;
     self.canAddObservers = YES;
@@ -248,7 +248,7 @@ SCLTimerDisplay *buttonTimer;
     self.backgroundViewColor = [UIColor whiteColor];
     _labelTitle.textColor = UIColorFromHEX(0x4D4D4D); //Dark Grey
     _viewText.textColor = UIColorFromHEX(0x4D4D4D); //Dark Grey
-    _contentView.layer.borderColor = UIColorFromHEX(0xCCCCCC).CGColor; //Light Grey
+//    _contentView.layer.borderColor = UIColorFromHEX(0xCCCCCC).CGColor; //Light Grey
 }
 
 - (void)setupNewWindow {
@@ -350,7 +350,7 @@ SCLTimerDisplay *buttonTimer;
     }
     
     // Buttons
-    CGFloat x = 12.0f;
+    CGFloat x = 16.0f;
     for (SCLButton *btn in _buttons) {
         btn.frame = CGRectMake(x, y, btn.frame.size.width, btn.frame.size.height);
         
@@ -358,7 +358,7 @@ SCLTimerDisplay *buttonTimer;
         if (_horizontalButtons) {
             x += btn.frame.size.width + 10.0f;
         } else {
-            y += btn.frame.size.height + 10.0f;
+            y += btn.frame.size.height + 12.0f;
         }
     }
     

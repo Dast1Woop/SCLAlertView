@@ -27,29 +27,56 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
 
 - (IBAction)showSuccess:(id)sender
 {
-    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+    //宽可设置，高度默认，内部自动调整
+    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindowWidth:300];
     
-    SCLButton *button = [alert addButton:@"First Button" target:self selector:@selector(firstButton)];
+    //标题设置
+//    [alert setTitleFontFamily:@"PingFangSC" withSize:62.0f];//不生效,奇怪!
+    alert.labelTitle.textColor = [UIColor whiteColor];
+    alert.labelTitle.font = [UIFont systemFontOfSize:20];
+    
+    //add 确定按钮
+    SCLButton *button = [alert addButton:@"确定" target:self selector:@selector(firstButton)];
     
     button.buttonFormatBlock = ^NSDictionary* (void)
     {
         NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
         
-        buttonConfig[@"backgroundColor"] = [UIColor whiteColor];
-        buttonConfig[@"textColor"] = [UIColor blackColor];
-        buttonConfig[@"borderWidth"] = @2.0f;
-        buttonConfig[@"borderColor"] = [UIColor greenColor];
-        
+        buttonConfig[@"backgroundColor"] = [UIColor orangeColor];
+        buttonConfig[@"textColor"] = [UIColor whiteColor];
+        buttonConfig[@"borderWidth"] = @1.0f;
+        buttonConfig[@"borderColor"] = [UIColor clearColor];
+        //不能这样设置，会崩溃
+//        buttonConfig[@"font"] = @20;
         return buttonConfig;
     };
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    button.layer.cornerRadius = 8;
     
-    [alert addButton:@"Second Button" actionBlock:^(void) {
-        NSLog(@"Second button tapped");
-    }];
+    //取消 按钮设置
+    alert.completeButtonFormatBlock = ^NSDictionary* (void)
+        {
+            NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
+            
+            buttonConfig[@"backgroundColor"] = [UIColor clearColor];
+            buttonConfig[@"borderColor"] = [UIColor orangeColor];
+            buttonConfig[@"borderWidth"] = @"1.0f";
+            buttonConfig[@"textColor"] = [UIColor orangeColor];
+            
+            return buttonConfig;
+        };
 
-    alert.soundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/right_answer.mp3", [NSBundle mainBundle].resourcePath]];
+//    alert.soundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/right_answer.mp3", [NSBundle mainBundle].resourcePath]];
 
-    [alert showSuccess:kSuccessTitle subTitle:kSubtitle closeButtonTitle:kButtonTitle duration:0.0f];
+    //其他设置
+    [alert setBackgroundViewColor:[UIColor colorWithRed:16/255.0 green:17/255.0 blue:29/255.0 alpha:1.0]];
+    
+    [alert setButtonsTextFontFamily:@"PingFang SC Semibold" withSize:20.0f];
+    [alert removeTopCircle];
+    
+    //show
+    [alert showSuccess:@"已到达目的地，\n是否回到首页？" subTitle:@"" closeButtonTitle:@"取消" duration:0.0f];
+  
 }
 
 - (IBAction)showSuccessWithHorizontalButtons:(id)sender {
@@ -149,7 +176,7 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     
     [alert setTitleFontFamily:@"Superclarendon" withSize:20.0f];
     [alert setBodyTextFontFamily:@"TrebuchetMS" withSize:14.0f];
-    [alert setButtonsTextFontFamily:@"Baskerville" withSize:14.0f];
+    [alert setButtonsTextFontFamily:@"PingFangSC" withSize:20.0f];
     
     [alert addButton:@"First Button" target:self selector:@selector(firstButton)];
     
@@ -192,6 +219,7 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     };
 
     [alert showTitle:self title:@"Congratulations" subTitle:kAttributeTitle style:SCLAlertViewStyleSuccess closeButtonTitle:@"Done" duration:0.0f];
+   
 }
 
 - (IBAction)ShowAdvancedWithHorizontalButtons:(id)sender

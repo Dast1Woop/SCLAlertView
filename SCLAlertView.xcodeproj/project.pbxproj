@@ -369,6 +369,7 @@
 				TargetAttributes = {
 					DDB15F9C19D5B7C600173158 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = PTUCTZC4VF;
 						LastSwiftMigration = 1200;
 					};
 					DDB15FB519D5B7C600173158 = {
@@ -602,6 +603,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = PTUCTZC4VF;
 				INFOPLIST_FILE = "$(SRCROOT)/SCLAlertViewExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -618,6 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = PTUCTZC4VF;
 				INFOPLIST_FILE = "$(SRCROOT)/SCLAlertViewExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
