@@ -91,6 +91,8 @@ SCLTimerDisplay *buttonTimer;
     self = [super init];
     if (self)
     {
+        //添加后可以在弹窗时第一时间读出title
+        self.isAccessibilityElement = NO;
         [self setupViewWindowWidth:DEFAULT_WINDOW_WIDTH];
     }
     return self;
